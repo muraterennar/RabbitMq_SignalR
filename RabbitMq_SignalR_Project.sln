@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RabbitMq_SignalR.Publisher", "RabbitMq_SignalR.Publisher\RabbitMq_SignalR.Publisher.csproj", "{4410FC2A-880F-4347-AD7F-8ADDD24E6260}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RabbitMq_SignalR.Subscriber", "RabbitMq_SignalR.Subscriber\RabbitMq_SignalR.Subscriber.csproj", "{0C6FB624-D17C-4030-868C-374768041B1E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RabbitMq_SignalR.Core", "RabbitMq_SignalR.Core\RabbitMq_SignalR.Core.csproj", "{0B8BAFA9-33DB-40EC-BE56-A8D60751920B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4410FC2A-880F-4347-AD7F-8ADDD24E6260}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4410FC2A-880F-4347-AD7F-8ADDD24E6260}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4410FC2A-880F-4347-AD7F-8ADDD24E6260}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4410FC2A-880F-4347-AD7F-8ADDD24E6260}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0C6FB624-D17C-4030-868C-374768041B1E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0C6FB624-D17C-4030-868C-374768041B1E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0C6FB624-D17C-4030-868C-374768041B1E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0C6FB624-D17C-4030-868C-374768041B1E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0B8BAFA9-33DB-40EC-BE56-A8D60751920B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0B8BAFA9-33DB-40EC-BE56-A8D60751920B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0B8BAFA9-33DB-40EC-BE56-A8D60751920B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0B8BAFA9-33DB-40EC-BE56-A8D60751920B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
