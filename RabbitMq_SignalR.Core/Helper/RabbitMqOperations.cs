@@ -49,7 +49,7 @@ public class RabbitMqOperations
         channel.BasicConsume(queueModal.QueueName, false, consumer);
 
         Console.WriteLine("Loglar Dinlenşyor...");
-        
+
         consumer.Received += (model, ea) =>
         {
             byte[] body = ea.Body.ToArray();
@@ -60,21 +60,19 @@ public class RabbitMqOperations
         };
     }
 
-    public void RabbitMqConsumeMessages(IModel channel, RabbitMqExchangeModal exchangeModal,
+    public void RabbitMqConsumeMessages(IModel channel, RabbitMqExchangeModal exchangeModal, string queueName,
         RabbitMqBasicQosModal basicQosModal)
     {
-        string randomQueueName = channel.QueueDeclare().QueueName;
-
-        channel.QueueBind(randomQueueName, exchangeModal.ExchangeName, string.Empty);
+        channel.QueueBind(queueName, exchangeModal.ExchangeName, string.Empty);
 
         channel.BasicQos(basicQosModal.PrefetchSize, basicQosModal.PrefetchCount, basicQosModal.Global);
 
         EventingBasicConsumer consumer = new EventingBasicConsumer(channel);
 
-        channel.BasicConsume(randomQueueName, false, consumer);
+        channel.BasicConsume(queueName, false, consumer);
 
         Console.WriteLine("Loglar Dinlenşyor...");
-        
+
         consumer.Received += (model, ea) =>
         {
             byte[] body = ea.Body.ToArray();
@@ -83,8 +81,7 @@ public class RabbitMqOperations
 
             channel.BasicAck(ea.DeliveryTag, false);
         };
-    }
-
+    } 
 
     public RabbitMqConnectionModal ConnectionToRabbitMq(string uri)
     {
@@ -105,6 +102,15 @@ public class RabbitMqOperations
     public void RabbitMqCreateQueue(IModel channel, RabbitMqQueueModal queueModal)
     {
         channel.QueueDeclare(queueModal.QueueName, queueModal.Durable, queueModal.Exclusive, queueModal.AutoDelete);
+    }
+    
+    public void RabbitMqCreateQueue(IModel channel, RabbitMqQueueModal queueModal, List<string> queueNames)
+    {
+        foreach (var queueName in queueNames)
+        {
+            var queueDeclareName = $"direct-queue-{queueName}";
+            channel.QueueDeclare(queueDeclareName, queueModal.Durable, queueModal.Exclusive, queueModal.AutoDelete);
+        }
     }
 
     public void RabbitMqCreateExchange(IModel channel, RabbitMqExchangeModal exchangeModal)

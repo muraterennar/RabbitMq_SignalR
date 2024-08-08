@@ -11,7 +11,7 @@ public class RabbitMqFanoutExchangeTutorial
 
     RabbitMqExchangeModal _exchangeModal = new RabbitMqExchangeModal
     {
-        ExchangeName = RabbitMqExchangeName.RabbitMqExchange,
+        ExchangeName = RabbitMqExchangeName.RabbitMqFanaoutExchange,
         ExchangeType = ExchangeType.Fanout,
         Durable = true,
         AutoDelete = false
@@ -28,7 +28,8 @@ public class RabbitMqFanoutExchangeTutorial
     {
         RabbitMqConnectionModal connection = _operations.ConnectionToRabbitMq(RabbitMqUris.RabbitMqUri);
 
-        _operations.RabbitMqConsumeMessages(connection.Channel, _exchangeModal, _basicQosModal);
+        string randomQueueName = connection.Channel.QueueDeclare().QueueName;
+        _operations.RabbitMqConsumeMessages(connection.Channel, _exchangeModal, randomQueueName, _basicQosModal);
 
         Console.ReadLine();
     }

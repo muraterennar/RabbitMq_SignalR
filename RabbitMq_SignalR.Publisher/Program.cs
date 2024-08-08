@@ -6,4 +6,8 @@ var rabbitMqBasicTutorial = new RabbitMqBasicTutorial();
 
 // RabbitMq Fanout Exchange Tutorial
 var rabbitMqFanoutExchangeTutorial = new RabbitMqFanoutExchangeTutorial();
-rabbitMqFanoutExchangeTutorial.PublishMessages();
+//rabbitMqFanoutExchangeTutorial.PublishMessages();
+
+// RabbitMq Direct Exchange Tutorial
+var rabbitMqDirectExchangeTutorial = new RabbitMqDirectFanoutExchange();
+rabbitMqDirectExchangeTutorial.PublishMessages();
